@@ -2,30 +2,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GrindMakers</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grindmakers</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div class="container">
     <header>
-        <h1>GrindMakers Dashboard</h1>
-        <p>NEET Countdown: <span id="neet-countdown"></span> | Boards Countdown: <span id="board-countdown"></span></p>
+      <h1>Grindmakers</h1>
+      <p>Track your studies and reach your goals!</p>
     </header>
     <main>
-        <section>
-            <h2>Backlog Tracker</h2>
-            <div class="backlog">
-                <p><strong>Physics:</strong> 12 lectures left</p>
-                <p><strong>Chemistry:</strong> 8 lectures left</p>
-                <p><strong>Biology:</strong> 15 lectures left</p>
-            </div>
-        </section>
-        <section>
-            <h2>Daily Progress</h2>
-            <p>Track today's completed lectures here.</p>
-        </section>
+      <section class="countdowns">
+        <h2>Exam Countdown</h2>
+        <div class="countdown" id="board-exam">Board Exam: <span id="board-days"></span> days left</div>
+        <div class="countdown" id="neet-exam">NEET Exam: <span id="neet-days"></span> days left</div>
+      </section>
+      <section class="progress">
+        <h2>Progress Tracker</h2>
+        <p>Track subject-wise lectures, chapters, and backlogs here.</p>
+      </section>
     </main>
-    <script src="script.js"></script>
+    <footer>
+      <p>© 2025 Grindmakers</p>
+    </footer>
+  </div>
+  <script>
+    const boardExamDate = new Date("2025-12-10");
+    const neetExamDate = new Date("2026-05-04");
+    const today = new Date();
+    const boardDiff = Math.ceil((boardExamDate - today) / (1000 * 60 * 60 * 24));
+    const neetDiff = Math.ceil((neetExamDate - today) / (1000 * 60 * 60 * 24));
+    document.getElementById("board-days").innerText = boardDiff;
+    document.getElementById("neet-days").innerText = neetDiff;
+  </script>
 </body>
 </html>
